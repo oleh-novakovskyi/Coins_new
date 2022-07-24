@@ -1,0 +1,218 @@
+﻿@using Coins_New;
+@model Coins_New.Models.AllModel
+
+@{
+  ViewData["Title"] = "Home Page";  
+  Layout = "_Layout";
+}
+
+<h1>Coins Catalog</h1>
+@*// all coins *@
+<div class="row">
+    <div class="col-10">
+        <h2>List of coins</h2>
+    </div>
+    <div class="col-2">
+        <div class="text-right">
+            <a href="/home/coin/add" class="btn btn-success">Add coin</a>
+         </div>
+    </div>
+</div>
+
+<div class="row">
+<table class="table table-striped" >
+    <thead>
+    <tr>
+      <th scope="col">Country</th>
+      <th scope="col">Value</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Year</th>
+      <th scope="col">Category</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var c in Model.Coins)
+    {
+        <tr>
+            <td>@c.Country</td>
+            <td>@c.Value</td>
+            <td>@c.Currency</td>
+            <td>@c.Year</td>
+            <td>@c.Category</td>
+            <td><a href="home/coin/edit/@c.Id" class="btn btn-outline-success">Edit</a></td>
+        </tr>
+     }
+     </tbody>
+</table>
+</div>
+
+<div class="row">
+      @*// all cointries *@ 
+      <div class="col-6">
+          <div class="row">
+            <div class="col-8">
+                <h2>List of countries</h2>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <a href="/home/country/add" class="btn btn-success">Add country</a>
+                </div>
+            </div>
+        </div>
+        @*//table countries*@
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">Country</th>      
+              <th scope="col" class="w-25">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var c in Model.Countries)
+            {
+                <tr>
+                    <td>@c.CountryName</td>            
+                    <td class="w-25"><a href="home/country/edit/@c.Id" class="btn btn-outline-success">Edit</a></td>
+                </tr>
+             }
+          </tbody>
+        </table>
+      </div>
+      @*// all categories *@ 
+      <div class="col-6">
+          <div class="row">
+            <div class="col-8">
+                <h2>List of categories</h2>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <a href="/home/category/add" class="btn btn-success">Add category</a>
+                </div>
+            </div>
+        </div>
+        @*//table categories*@
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">Category</th>              
+              <th scope="col" class="w-25">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var c in Model.Categories)
+            {
+                <tr>
+                    <td>@c.CategoryName</td>                    
+                    <td class="w-25"><a href="home/category/edit/@c.Id" class="btn btn-outline-success">Edit</a></td>
+                </tr>
+             }
+             </tbody>
+        </table>
+      </div>
+</div>
+
+<div class="row">
+      @*// all value *@ 
+      <div class="col-6">
+          <div class="row">
+            <div class="col-8">
+                <h2>List of values</h2>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <a href="/home/value/add" class="btn btn-success">Add value</a>
+                </div>
+            </div>
+        </div>
+        @*//table value*@
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">Value</th>      
+              <th scope="col" class="w-25">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var v in Model.Values)
+            {
+                <tr>
+                    <td>@v.ValueName</td>            
+                    <td class="w-25"><a href="home/value/edit/@v.Id" class="btn btn-outline-success">Edit</a></td>
+                </tr>
+             }
+          </tbody>
+        </table>
+      </div>
+      @*// all years *@ 
+      <div class="col-6">
+          <div class="row">
+            <div class="col-8">
+                <h2>List of Years</h2>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <a href="/home/year/add" class="btn btn-success">Add year</a>
+                </div>
+            </div>
+        </div>
+        @*//table years*@
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">Year</th>              
+              <th scope="col" class="w-25">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var y in Model.Years)
+            {
+                <tr>
+                    <td>@y.YearName</td>                    
+                    <td class="w-25"><a href="home/year/edit/@y.Id" class="btn btn-outline-success">Edit</a></td>
+                </tr>
+             }
+             </tbody>
+        </table>
+      </div>
+</div>
+
+<div class="row">
+      @*// all 	Currency *@ 
+      <div class="col-6">
+          <div class="row">
+            <div class="col-8">
+                <h2>List of Currencies</h2>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <a href="/home/currency/add" class="btn btn-success">Add currency</a>
+                </div>
+            </div>
+        </div>
+        @*//table value*@
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">Country</th>  
+              <th scope="col">Currency</th>      
+              <th scope="col" class="w-25">#</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var c in Model.Currencies)
+            {
+                <tr>
+                    <td>@c.CountryName</td>            
+                    <td>@c.CurrencyName</td>            
+                    <td class="w-25"><a href="home/currency/edit/@c.Id" class="btn btn-outline-success">Edit</a></td>
+                </tr>
+             }
+          </tbody>
+        </table>
+      </div>
+      @*//  *@ 
+      <div class="col-6">
+          
+      </div>
+</div>

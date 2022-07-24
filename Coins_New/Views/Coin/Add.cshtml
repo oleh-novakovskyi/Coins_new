@@ -1,0 +1,128 @@
+﻿@using Coins_New;
+@model Coins_New.Models.AllModel
+
+@{
+  ViewData["Title"] = "Add Coin";  
+   Layout = "_Layout";
+}
+
+<div class="container">
+        <section>
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">@ViewData["Title"]</h5>
+                </div>
+                <div class="card-body">
+                  <form>
+                    
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                            <select class="form-control" id="country">
+                                @foreach (var c in Model.Countries)
+                                    {
+                                        <option value = "@c.CountryName">@c.CountryName</option>
+                                    }                                
+                            </select>                          
+                          <label class="form-label" for="country" style="margin-left: 0px;">Country</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <select class="form-control" id="year">
+                                @foreach (var y in Model.Years)
+                                    {
+                                        <option value = "@y.YearName">@y.YearName</option>
+                                    }                                
+                            </select>   
+                          <label class="form-label" for="year" style="margin-left: 0px;">Year</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <select class="form-control" id="value">
+                                @foreach (var v in Model.Values)
+                                    {
+                                        <option value = "@v.ValueName">@v.ValueName</option>
+                                    }                                
+                            </select>   
+                          <label class="form-label" for="value" style="margin-left: 0px;">Value</label>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                            <select class="form-control" id="currency">
+                                @foreach (var c in Model.Currencies)
+                                    {
+                                        <option value = "@c.CurrencyName">@c.CurrencyName</option>
+                                    }                                
+                            </select>                          
+                          <label class="form-label" for="currency" style="margin-left: 0px;">Country</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <select class="form-control" id="category">
+                                @foreach (var c in Model.Categories)
+                                    {
+                                        <option value = "@c.CategoryName">@c.CategoryName</option>
+                                    }                                
+                            </select>   
+                          <label class="form-label" for="category" style="margin-left: 0px;">Category</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                         <input type="text" id="mark" class="form-control">
+                      <label class="form-label" for="mark" style="margin-left: 0px;">Mark</label>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <!--  -->
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                              <input type="text" id="material" class="form-control">
+                              <label class="form-label" for="material" style="margin-left: 0px;">Material</label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-outline mb-4">
+                              <input type="text" id="group" class="form-control">
+                              <label class="form-label" for="group" style="margin-left: 0px;">Group</label>
+                            </div>
+                        </div>
+
+                        <div class="col">                    
+                            <div class="form-outline mb-4">
+                              <input type="text" id="mass" class="form-control">
+                              <label class="form-label" for="mass" style="margin-left: 0px;">Mass</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--  -->
+                    <div class="form-outline mb-4">
+                      <textarea class="form-control" id="description" rows="4"></textarea>
+                      <label class="form-label" for="description" style="margin-left: 0px;">Description</label>
+                    </div>
+
+                    <!--  -->
+                    <div class="d-flex justify-content-center mb-2">
+                      <button type="button" class="btn btn-warning">Create</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </section>
+</div>
